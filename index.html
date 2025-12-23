@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Travel Insurance</title>
+    <title>Demo Shop</title>
 
     <!-- GTM HEAD -->
-    <script>/* GTM SCRIPT HERE */</script>
+    <!-- GTM SCRIPT HERE -->
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- GTM BODY -->
-<noscript>GTM NOSCRIPT HERE</noscript>
+<!-- GTM NOSCRIPT HERE -->
 
 <header>
-    <a href="index.html" onclick="navClick('home')">Home</a>
-    <a href="about.html" onclick="navClick('about')">About</a>
-    <a href="billing.html" onclick="navClick('cart')">Cart</a>
+    <a href="index.html">DemoShop</a>
+    <a href="cart.html" onclick="viewCart()">Cart</a>
 </header>
 
 <div class="container">
-    <h1>Travel Insurance</h1>
+    <div class="products">
 
-    <button onclick="addToCart()">Add Policy to Cart</button>
+        <div class="product">
+            <h3>Wireless Headphones</h3>
+            <p class="price">₹2,999</p>
+            <button onclick="addToCart('P1','Wireless Headphones',2999)">Add to Cart</button>
+        </div>
 
-    <form action="billing.html" onsubmit="travelSubmit()">
-        <label>Destination</label>
-        <input type="text" required>
+        <div class="product">
+            <h3>Smart Watch</h3>
+            <p class="price">₹4,999</p>
+            <button onclick="addToCart('P2','Smart Watch',4999)">Add to Cart</button>
+        </div>
 
-        <label>Start Date</label>
-        <input type="date" required>
+        <div class="product">
+            <h3>Bluetooth Speaker</h3>
+            <p class="price">₹1,999</p>
+            <button onclick="addToCart('P3','Bluetooth Speaker',1999)">Add to Cart</button>
+        </div>
 
-        <label>End Date</label>
-        <input type="date" required>
-
-        <label>Email</label>
-        <input type="email" required>
-
-        <button type="submit">Proceed to Checkout</button>
-    </form>
+    </div>
 </div>
 
 <script src="script.js"></script>
