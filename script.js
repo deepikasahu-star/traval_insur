@@ -1,10 +1,11 @@
 window.dataLayer = window.dataLayer || [];
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function saveTravelDetails() {
+    dataLayer.push({ event: "travel_details_submitted" });
+}
 
-function addToCart(id, name, price) {
-    cart.push({ id, name, price });
-    localStorage.setItem("cart", JSON.stringify(cart));
+function selectPlan(id, name, price) {
+    localStorage.setItem("selectedPlan", JSON.stringify({ id, name, price }));
 
     dataLayer.push({
         event: "add_to_cart",
@@ -12,31 +13,33 @@ function addToCart(id, name, price) {
             items: [{
                 item_id: id,
                 item_name: name,
-                price: price,
-                quantity: 1
+                price: price
             }]
         }
     });
 
-    alert("Item added to cart");
+    window.location.href = "cart.html";
 }
 
-function viewCart() {
-    dataLayer.push({ event: "view_cart" });
-}
+function loadCart() {
+    let plan = JSON.parse(localStorage.getItem("selectedPlan"));
+    if (!plan) return;
 
-function checkout() {
-    dataLayer.push({ event: "begin_checkout" });
+    document.getElementById("planName").innerText = plan.name;
+    document.getElementById("planPrice").innerText = plan.price;
 }
 
 function purchase() {
+    let plan = JSON.parse(localStorage.getItem("selectedPlan"));
+
     dataLayer.push({
         event: "purchase",
         ecommerce: {
-            value: cart.reduce((t, i) => t + i.price, 0),
+            value: plan.price,
             currency: "INR",
-            items: cart
+            items: [plan]
         }
     });
+
     localStorage.clear();
 }
