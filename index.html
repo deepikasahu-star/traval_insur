@@ -1,44 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Demo Shop</title>
-
-    <!-- GTM HEAD -->
-    <!-- GTM SCRIPT HERE -->
-
+    <title>Travel Insurance</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- GTM BODY -->
-<!-- GTM NOSCRIPT HERE -->
-
 <header>
-    <a href="index.html">DemoShop</a>
-    <a href="cart.html" onclick="viewCart()">Cart</a>
+    <a href="#">Travel Insurance</a>
 </header>
 
 <div class="container">
-    <div class="products">
+    <div class="card">
+        <h2>Enter Travel Details</h2>
 
-        <div class="product">
-            <h3>Wireless Headphones</h3>
-            <p class="price">₹2,999</p>
-            <button onclick="addToCart('P1','Wireless Headphones',2999)">Add to Cart</button>
-        </div>
+        <form action="plans.html" onsubmit="saveTravelDetails()">
+            <input type="text" placeholder="Destination Country" required>
+            <input type="date" required>
+            <input type="date" required>
+            <input type="number" placeholder="Number of Travelers" required>
 
-        <div class="product">
-            <h3>Smart Watch</h3>
-            <p class="price">₹4,999</p>
-            <button onclick="addToCart('P2','Smart Watch',4999)">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <h3>Bluetooth Speaker</h3>
-            <p class="price">₹1,999</p>
-            <button onclick="addToCart('P3','Bluetooth Speaker',1999)">Add to Cart</button>
-        </div>
-
+            <button class="primary">View Plans</button>
+        </form>
     </div>
 </div>
 
