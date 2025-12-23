@@ -2,30 +2,26 @@ body {
     font-family: Arial, sans-serif;
     background: #f4f6f8;
     margin: 0;
-    padding: 0;
+}
+
+header {
+    background: #0073e6;
+    padding: 10px;
+}
+
+header a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .container {
     width: 400px;
-    margin: 50px auto;
-    background: #ffffff;
+    margin: 40px auto;
+    background: #fff;
     padding: 20px;
     border-radius: 6px;
-}
-
-h1 {
-    text-align: center;
-}
-
-label {
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    margin-bottom: 12px;
 }
 
 button {
@@ -37,11 +33,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background: #005bb5;
-}
-
-.success {
-    text-align: center;
-    color: green;
+button.secondary {
+    background: #555;
+    margin-top: 10px;
 }
