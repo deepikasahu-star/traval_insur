@@ -2,33 +2,42 @@
 <html>
 <head>
     <title>Travel Insurance</title>
-    <link rel="stylesheet" href="style.css">
 
-    <!-- GTM goes here -->
-    <!-- <script>dataLayer = [];</script> -->
+    <!-- GTM HEAD -->
+    <script>/* GTM SCRIPT HERE */</script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- GTM BODY -->
+<noscript>GTM NOSCRIPT HERE</noscript>
+
+<header>
+    <a href="index.html" onclick="navClick('home')">Home</a>
+    <a href="about.html" onclick="navClick('about')">About</a>
+    <a href="billing.html" onclick="navClick('cart')">Cart</a>
+</header>
 
 <div class="container">
     <h1>Travel Insurance</h1>
 
+    <button onclick="addToCart()">Add Policy to Cart</button>
+
     <form action="billing.html" onsubmit="travelSubmit()">
-        <label>Destination Country</label>
-        <input type="text" name="destination" required>
+        <label>Destination</label>
+        <input type="text" required>
 
         <label>Start Date</label>
-        <input type="date" name="start_date" required>
+        <input type="date" required>
 
         <label>End Date</label>
-        <input type="date" name="end_date" required>
-
-        <label>Number of Travelers</label>
-        <input type="number" name="travelers" required>
+        <input type="date" required>
 
         <label>Email</label>
-        <input type="email" name="email" required>
+        <input type="email" required>
 
-        <button type="submit">Purchase</button>
+        <button type="submit">Proceed to Checkout</button>
     </form>
 </div>
 
