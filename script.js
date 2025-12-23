@@ -1,37 +1,42 @@
-function pushEvent(eventName, data) {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-        event: eventName,
-        ...data
+window.dataLayer = window.dataLayer || [];
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(id, name, price) {
+    cart.push({ id, name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    dataLayer.push({
+        event: "add_to_cart",
+        ecommerce: {
+            items: [{
+                item_id: id,
+                item_name: name,
+                price: price,
+                quantity: 1
+            }]
+        }
     });
+
+    alert("Item added to cart");
 }
 
-// Navigation clicks
-function navClick(label) {
-    pushEvent("navigation_click", {
-        link_name: label
-    });
+function viewCart() {
+    dataLayer.push({ event: "view_cart" });
 }
 
-// Add policy
-function addToCart() {
-    pushEvent("add_to_cart", {
-        product: "travel_insurance",
-        price: 2999,
-        currency: "INR"
-    });
+function checkout() {
+    dataLayer.push({ event: "begin_checkout" });
 }
 
-// Travel form submit
-function travelSubmit() {
-    pushEvent("travel_form_submit", {
-        step: "travel_info"
+function purchase() {
+    dataLayer.push({
+        event: "purchase",
+        ecommerce: {
+            value: cart.reduce((t, i) => t + i.price, 0),
+            currency: "INR",
+            items: cart
+        }
     });
-}
-
-// Payment submit
-function paymentSubmit() {
-    pushEvent("payment_submit", {
-        step: "billing"
-    });
+    localStorage.clear();
 }
