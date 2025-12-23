@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Plan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a href="#">Choose Plan</a>
+</header>
+
+<div class="container">
+
+    <div class="card plan">
+        <div>
+            <h3>Basic Plan</h3>
+            <p>Medical cover up to $50,000</p>
+        </div>
+        <div>
+            <p class="price">₹999</p>
+            <button onclick="selectPlan('P1','Basic Plan',999)">Select</button>
+        </div>
+    </div>
+
+    <div class="card plan">
+        <div>
+            <h3>Standard Plan</h3>
+            <p>Medical + Baggage loss</p>
+        </div>
+        <div>
+            <p class="price">₹1,499</p>
+            <button onclick="selectPlan('P2','Standard Plan',1499)">Select</button>
+        </div>
+    </div>
+
+    <div class="card plan">
+        <div>
+            <h3>Premium Plan</h3>
+            <p>Medical + Trip cancellation</p>
+        </div>
+        <div>
+            <p class="price">₹1,999</p>
+            <button onclick="selectPlan('P3','Premium Plan',1999)">Select</button>
+        </div>
+    </div>
+
+    <div class="card plan">
+        <div>
+            <h3>Platinum Plan</h3>
+            <p>All benefits included</p>
+        </div>
+        <div>
+            <p class="price">₹2,499</p>
+            <button onclick="selectPlan('P4','Platinum Plan',2499)">Select</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
