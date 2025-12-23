@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container success">
+    <h1>✅ Purchase Successful</h1>
+    <p>Your travel insurance is active.</p>
+</div>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+    event: "purchase_complete",
+    status: "success",
+    product: "travel_insurance"
+});
+</script>
+
+</body>
+</html>
