@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cart</title>
+    <title>Your Cart</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="loadCart()">
 
 <header>
-    <a href="index.html">DemoShop</a>
+    <a href="#">Cart</a>
 </header>
 
 <div class="container">
-    <div class="cart-box">
-        <h2>Your Cart</h2>
-        <p>Items added successfully.</p>
+    <div class="card">
+        <h2>Selected Plan</h2>
+        <p><strong id="planName"></strong></p>
+        <p>Price: ₹<span id="planPrice"></span></p>
 
-        <a href="checkout.html">
-            <button class="checkout" onclick="checkout()">Proceed to Checkout</button>
+        <a href="billing.html">
+            <button class="primary">Proceed to Billing</button>
         </a>
     </div>
 </div>
