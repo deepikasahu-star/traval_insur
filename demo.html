@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Insure My Trip – Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===================================================== -->
+  <!-- ===================================================== -->
+  <!-- 🔹 STEP 1: ADD GTM HEAD SNIPPET BELOW THIS COMMENT 🔹 -->
+  <!-- Content type: <script> Google Tag Manager HEAD code -->
+  <!-- Example starts with: (function(w,d,s,l,i){ -->
+  <!-- Example ends with: })(window,document,'script','dataLayer','GTM-XXXXXXX'); -->
+  <!-- Replace GTM-XXXXXXX with your GTM Container ID -->
+  <!-- ===================================================== -->
+
+
+  <!-- ===================================================== -->
+
+
+  <!-- ===================================================== -->
+  <!-- 🔹 STEP 2: GA4 HARD-CODED TAG (OPTIONAL)               -->
+  <!-- Use this ONLY if you want hard-coded GA4 events       -->
+  <!-- If GA4 is fully via GTM, you can REMOVE this block    -->
+  <!-- ===================================================== -->
+
+  <!-- Replace G-XXXXXXXXXX with your GA4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}    
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f7fa; margin:0; }
+    header { background:#0d6efd; color:#fff; padding:16px; text-align:center; }
+    .container { max-width:600px; margin:40px auto; background:#fff; padding:24px; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    h2 { margin-top:0; }
+    label { display:block; margin-top:12px; font-weight:bold; }
+    input, select, button { width:100%; padding:10px; margin-top:6px; }
+    button { background:#0d6efd; color:#fff; border:none; cursor:pointer; margin-top:20px; }
+    button:hover { background:#084298; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+
+<!-- ===================================================== -->
+<!-- ===================================================== -->
+<!-- 🔹 STEP 3: ADD GTM BODY (NOSCRIPT) SNIPPET HERE 🔹 -->
+<!-- Content type: <noscript><iframe> Google Tag Manager BODY code -->
+<!-- Example starts with: <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" -->
+<!-- Example ends with: </iframe></noscript> -->
+<!-- Replace GTM-XXXXXXX with your GTM Container ID -->
+<!-- ===================================================== -->
+
+<header>
+  <h1>Insure My Trip (Demo)</h1>
+</header>
+
+<!-- ================= HOME PAGE ================= -->
+<div class="container" id="homePage">
+  <h2>Travel Details</h2>
+
+  <label>Full Name</label>
+  <!-- 🔹 GA4 Event: name_filled -->
+  <input type="text" id="fullName" placeholder="Enter your name" />
+
+  <label>Destination</label>
+  <!-- 🔹 GA4 Event: destination_filled -->
+  <input type="text" id="destination" placeholder="Enter destination" />
+
+  <label>Start Date</label>
+  <!-- 🔹 GA4 Event: start_date_selected -->
+  <input type="date" id="startDate" />
+
+  <label>End Date</label>
+  <!-- 🔹 GA4 Event: end_date_selected -->
+  <input type="date" id="endDate" />
+
+  <!-- 🔹 GA4 Event: travel_details_submitted -->
+  <button onclick="goToBilling()">Continue</button>
+</div>
+
+<!-- ================= BILLING PAGE ================= -->
+<div class="container hidden" id="billingPage">
+  <h2>Billing Details</h2>
+
+  <label>Card Number</label>
+  <input type="text" placeholder="1234 5678 9012 3456" />
+
+  <label>Expiry Date</label>
+  <input type="text" placeholder="MM/YY" />
+
+  <label>CVV</label>
+  <input type="text" placeholder="123" />
+
+  <!-- 🔹 GA4 Event: purchase_click -->
+  <button onclick="purchase()">Purchase</button>
+</div>
+
+<!-- ================= CONFIRMATION PAGE ================= -->
+<div class="container hidden" id="confirmationPage">
+  <h2>Purchase Successful ✅</h2>
+  <p>Your travel insurance has been successfully purchased.</p>
+</div>
+
+<script>
+  // =====================================================
+  // 🔹 STEP 4: HARD-CODED GA4 EVENTS (FOR DEMO / AUDIT)
+  // Other events can be implemented via GTM
+  // =====================================================
+
+  document.getElementById('fullName').addEventListener('blur', function () {
+    if (this.value.trim() !== '') {
+      gtag('event', 'name_filled', {
+        event_category: 'form_interaction',
+        event_label: 'Full Name'
+      });
+    }
+  });
+
+  document.getElementById('destination').addEventListener('blur', function () {
+    if (this.value.trim() !== '') {
+      gtag('event', 'destination_filled', {
+        event_category: 'form_interaction',
+        event_label: 'Destination'
+      });
+    }
+  });
+
+  document.getElementById('startDate').addEventListener('change', function () {
+    gtag('event', 'start_date_selected', {
+      event_category: 'form_interaction'
+    });
+  });
+
+  document.getElementById('endDate').addEventListener('change', function () {
+    gtag('event', 'end_date_selected', {
+      event_category: 'form_interaction'
+    });
+  });
+
+  function goToBilling() {
+    gtag('event', 'travel_details_submitted', {
+      event_category: 'navigation'
+    });
+
+    document.getElementById('homePage').classList.add('hidden');
+    document.getElementById('billingPage').classList.remove('hidden');
+  }
+
+  function purchase() {
+    gtag('event', 'purchase_click', {
+      event_category: 'ecommerce',
+      value: 999,
+      currency: 'INR'
+    });
+
+    document.getElementById('billingPage').classList.add('hidden');
+    document.getElementById('confirmationPage').classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
