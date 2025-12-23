@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a href="#">Payment</a>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Billing Details</h2>
+
+        <form action="success.html" onsubmit="purchase()">
+            <input type="text" placeholder="Card Holder Name" required>
+            <input type="text" placeholder="Card Number" required>
+            <input type="month" required>
+            <input type="password" placeholder="CVV" required>
+
+            <button class="primary">Pay Now</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
