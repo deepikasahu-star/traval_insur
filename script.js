@@ -9,6 +9,7 @@ function selectPlan(id, name, price) {
 
     dataLayer.push({
         event: "add_to_cart",
+        event_id:Date.now() + "_" + Math.floor(Math.random() * 1000000),
         ecommerce: {
             items: [{
                 item_id: id,
