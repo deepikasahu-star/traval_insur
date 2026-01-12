@@ -33,7 +33,7 @@ function purchase() {
     let plan = JSON.parse(localStorage.getItem("selectedPlan"));
 
     dataLayer.push({
-        event: "purchase",
+        event: "Purchase",
         event_id:Date.now() + "_" + Math.floor(Math.random() * 1000000),
         ecommerce: {
             value: plan.price,
