@@ -1,85 +1,39 @@
 /* =========================================================
-   script.js (COMPLETE)
-   - Keeps your existing Web GTM dataLayer.push() events
-   - Adds direct sending of the SAME events to Server-side GTM
-   - Server endpoint: https://idlxatxt.euo.stape.net
+   script.js (GA4 gtag ONLY)
+   Measurement ID: G-JQ2DF8NVXT
    ========================================================= */
 
-/* 1) Ensure dataLayer exists (required for Web GTM) */
+/* Safety fallback */
 window.dataLayer = window.dataLayer || [];
+window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
 
-/* 2) NEW: Send events to Server-side GTM (Stape) */
-function sendToServerGTM(eventName, eventData = {}) {
-  // Your server-side GTM endpoint (Stape). We send to /event for clarity.
-  const url = "https://idlxatxt.euo.stape.net/event";
-
-  // Build a simple JSON payload that server GTM can receive
-  const payload = {
-    event: eventName,
-    ...eventData,
-    timestamp: Date.now()
-  };
-
-  const body = JSON.stringify(payload);
-
-  // Best for redirects/navigation (still sends even when page unloads)
-  if (navigator.sendBeacon) {
-    const blob = new Blob([body], { type: "application/json" });
-    navigator.sendBeacon(url, blob);
-    return;
-  }
-
-  // Fallback if sendBeacon isn't available
-  fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body,
-    keepalive: true
-  }).catch(() => {});
-}
-
-/* 3) Submit travel details (no extra fields captured as requested) */
+/* 1️⃣ Travel details submit */
 function saveTravelDetails() {
-  // Web GTM event
-  dataLayer.push({ event: "travel_details_submitted" });
-
-  // Server GTM event
-  sendToServerGTM("travel_details_submitted");
+  gtag('event', 'travel_details_submitted');
 }
 
-/* 4) Select a plan -> add_to_cart + redirect to cart.html */
+/* 2️⃣ Select plan → add_to_cart */
 function selectPlan(id, name, price) {
-  // Save chosen plan for cart page
   localStorage.setItem("selectedPlan", JSON.stringify({ id, name, price }));
 
-  // Build the event payload once (reuse for both Web + Server)
-  const dlEvent = {
-    event: "add_to_cart",
-    ecommerce: {
-      items: [
-        {
-          item_id: String(id),
-          item_name: String(name),
-          price: Number(price),
-          quantity: 1
-        }
-      ]
-    }
-  };
+  gtag('event', 'add_to_cart', {
+    currency: 'INR',
+    value: Number(price),
+    items: [{
+      item_id: String(id),
+      item_name: String(name),
+      price: Number(price),
+      quantity: 1
+    }]
+  });
 
-  // Web GTM event
-  dataLayer.push(dlEvent);
-
-  // Server GTM event (send only what you need; here ecommerce)
-  sendToServerGTM("add_to_cart", { ecommerce: dlEvent.ecommerce });
-
-  // Delay redirect slightly so beacon/fetch can complete
+  // Allow GA4 request to fire before redirect
   setTimeout(() => {
     window.location.href = "cart.html";
-  }, 150);
+  }, 200);
 }
 
-/* 5) Load cart (reads localStorage and renders on cart.html) */
+/* 3️⃣ Load cart page */
 function loadCart() {
   const plan = JSON.parse(localStorage.getItem("selectedPlan"));
   if (!plan) return;
@@ -91,7 +45,7 @@ function loadCart() {
   if (planPriceEl) planPriceEl.innerText = plan.price;
 }
 
-/* 6) Purchase -> sends Web + Server event, then clears storage */
+/* 4️⃣ Purchase */
 function purchase() {
   const plan = JSON.parse(localStorage.getItem("selectedPlan"));
   if (!plan) return;
@@ -99,32 +53,17 @@ function purchase() {
   const transactionId =
     Date.now() + "_" + Math.floor(Math.random() * 1000000);
 
-  const dlEvent = {
-    event: "purchase", // GA4 recommended lowercase
+  gtag('event', 'purchase', {
     transaction_id: transactionId,
-    ecommerce: {
-      value: Number(plan.price),
-      currency: "INR",
-      items: [
-        {
-          item_id: String(plan.id),
-          item_name: String(plan.name),
-          price: Number(plan.price),
-          quantity: 1
-        }
-      ]
-    }
-  };
-
-  // Web GTM event
-  dataLayer.push(dlEvent);
-
-  // Server GTM event
-  sendToServerGTM("purchase", {
-    transaction_id: transactionId,
-    ecommerce: dlEvent.ecommerce
+    currency: 'INR',
+    value: Number(plan.price),
+    items: [{
+      item_id: String(plan.id),
+      item_name: String(plan.name),
+      price: Number(plan.price),
+      quantity: 1
+    }]
   });
 
-  // Clear cart
   localStorage.clear();
 }
