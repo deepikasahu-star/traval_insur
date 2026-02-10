@@ -7,9 +7,24 @@
 window.dataLayer = window.dataLayer || [];
 window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
 
+/* ✅ OneTrust event helper (push via dataLayer) */
+function pushOneTrustEvent(activeGroups) {
+  window.dataLayer.push({
+    event: "OneTrust",
+    OnetrustActiveGroups: String(activeGroups || "")
+    // DO NOT set gtm.uniqueEventId manually — GTM will generate it
+  });
+}
+
+/* OPTIONAL: If you want to fire it immediately on page load */
+pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
+
 /* 1️⃣ Travel details submit */
 function saveTravelDetails() {
   gtag('event', 'travel_details_submitted');
+
+  // OPTIONAL: fire OneTrust event at this moment too (if desired)
+  // pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
 }
 
 /* 2️⃣ Select plan → add_to_cart */
@@ -26,6 +41,9 @@ function selectPlan(id, name, price) {
       quantity: 1
     }]
   });
+
+  // OPTIONAL: fire OneTrust event when cart action happens
+  // pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
 
   // Allow GA4 request to fire before redirect
   setTimeout(() => {
@@ -64,6 +82,9 @@ function purchase() {
       quantity: 1
     }]
   });
+
+  // OPTIONAL: fire OneTrust event on purchase too
+  // pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
 
   localStorage.clear();
 }
