@@ -10,6 +10,19 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-5Z3DN3XG');</script>
     <!-- End Google Tag Manager -->
+    <!-- ✅ ADD THIS: GA4 gtag (hard-coded) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQ2DF8NVXT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      /* Prevent duplicate page_view if GTM also sends page_view */
+      gtag('config', 'G-JQ2DF8NVXT', {
+        send_page_view: false
+      });
+    </script>
+    <!-- ✅ END gtag -->
 
     <link rel="stylesheet" href="style.css">
 </head>
