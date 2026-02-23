@@ -63,6 +63,36 @@ function loadCart() {
   if (planPriceEl) planPriceEl.innerText = plan.price;
 }
 
+/* 5️⃣ Success Page Load Event */
+function pushPurchaseSuccessEvent() {
+
+  const plan = JSON.parse(localStorage.getItem("selectedPlan"));
+  if (!plan) return;
+
+  const transactionId =
+    Date.now() + "_" + Math.floor(Math.random() * 1000000);
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "purchase_success_page_load",
+
+    ecommerce: {
+      transaction_id: transactionId,
+      currency: "INR",
+      value: Number(plan.price),
+      items: [{
+        item_id: String(plan.id),
+        item_name: String(plan.name),
+        price: Number(plan.price),
+        quantity: 1
+      }]
+    }
+  });
+
+  // Clear cart AFTER push
+  localStorage.clear();
+}
+
 /* 4️⃣ Purchase */
 function purchase() {
   const plan = JSON.parse(localStorage.getItem("selectedPlan"));
