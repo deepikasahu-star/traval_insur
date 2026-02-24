@@ -14,9 +14,7 @@ window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
 ========================= */
 gtag('js', new Date());
 
-gtag('config', 'G-JQ2DF8NVXT', {
-  transport_url: 'https://idlxatxt.euo.stape.net'
-});
+gtag('config', 'G-JQ2DF8NVXT');
 
 
 /* =========================
@@ -37,7 +35,7 @@ pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
    1️⃣ TRAVEL DETAILS
 ========================= */
 function saveTravelDetails() {
-  gtag('event', 'travel_details', {
+  gtag('event', 'travel_details_sub', {
     send_to: 'G-JQ2DF8NVXT'
   });
 }
@@ -95,7 +93,7 @@ function purchase() {
   const transactionId =
     Date.now() + "_" + Math.floor(Math.random() * 1000000);
 
-  gtag('event', 'purchase', {
+  gtag('event', 'bpurchase', {
     send_to: 'G-JQ2DF8NVXT',
     transaction_id: transactionId,
     currency: 'INR',
@@ -124,7 +122,7 @@ function pushPurchaseSuccessEvent() {
   const transactionId =
     Date.now() + "_" + Math.floor(Math.random() * 1000000);
 
-  gtag('event', 'purchase', {
+  gtag('event', 'Apurchase', {
     send_to: 'G-JQ2DF8NVXT',
     transaction_id: transactionId,
     currency: "INR",
