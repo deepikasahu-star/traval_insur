@@ -42,14 +42,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="card">
         <h2>Enter Travel Details</h2>
 
-        <form action="plans.html" onsubmit="saveTravelDetails()">
-            <input type="text" placeholder="Destination Country" required>
-            <input type="date" required>
-            <input type="date" required>
-            <input type="number" placeholder="Number of Travelers" required>
+        <form id="travelForm" action="plans.html">
+    <input id="destination" type="text" placeholder="Destination Country" required>
+    
+    <input id="startDate" type="date" required>
+    
+    <input id="endDate" type="date" required>
+    
+    <input id="travelers" type="number" placeholder="Number of Travelers" required>
 
-            <button class="primary">View Plans</button>
-        </form>
+    <button type="submit" class="primary">View Plans</button>
+</form>
     </div>
 </div>
 
