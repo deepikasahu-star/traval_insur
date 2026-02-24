@@ -29,7 +29,7 @@ function pushOneTrustEvent(activeGroups) {
   });
 }
 
-/* Fire if already known */
+/* Fire if consent already known */
 pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
 
 
@@ -37,7 +37,9 @@ pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
    1️⃣ TRAVEL DETAILS
 ========================= */
 function saveTravelDetails() {
-  gtag('event', 'travel_details');
+  gtag('event', 'travel_details', {
+    send_to: 'G-JQ2DF8NVXT'
+  });
 }
 
 
@@ -49,6 +51,7 @@ function selectPlan(id, name, price) {
   localStorage.setItem("selectedPlan", JSON.stringify({ id, name, price }));
 
   gtag('event', 'add_to_cart', {
+    send_to: 'G-JQ2DF8NVXT',
     currency: 'INR',
     value: Number(price),
     items: [{
@@ -93,6 +96,7 @@ function purchase() {
     Date.now() + "_" + Math.floor(Math.random() * 1000000);
 
   gtag('event', 'purchase', {
+    send_to: 'G-JQ2DF8NVXT',
     transaction_id: transactionId,
     currency: 'INR',
     value: Number(plan.price),
@@ -121,6 +125,7 @@ function pushPurchaseSuccessEvent() {
     Date.now() + "_" + Math.floor(Math.random() * 1000000);
 
   gtag('event', 'purchase', {
+    send_to: 'G-JQ2DF8NVXT',
     transaction_id: transactionId,
     currency: "INR",
     value: Number(plan.price),
