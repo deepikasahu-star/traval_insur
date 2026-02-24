@@ -40,7 +40,64 @@ function saveTravelDetails() {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
 
+  const form = document.getElementById("travelForm");
+  const destination = document.getElementById("destination");
+  const startDate = document.getElementById("startDate");
+  const endDate = document.getElementById("endDate");
+  const travelers = document.getElementById("travelers");
+
+  if (!form) return; // safety check
+
+  // Track field changes (optional)
+  if (destination) {
+    destination.addEventListener("change", function () {
+      gtag('event', 'destination_selected', {
+        destination_country: this.value
+      });
+    });
+  }
+
+  if (startDate) {
+    startDate.addEventListener("change", function () {
+      gtag('event', 'start_date_selected', {
+        start_date: this.value
+      });
+    });
+  }
+
+  if (endDate) {
+    endDate.addEventListener("change", function () {
+      gtag('event', 'end_date_selected', {
+        end_date: this.value
+      });
+    });
+  }
+
+  if (travelers) {
+    travelers.addEventListener("change", function () {
+      gtag('event', 'travelers_selected', {
+        number_of_travelers: this.value
+      });
+    });
+  }
+
+  // Track main submit event
+  form.addEventListener("submit", function () {
+
+    gtag('event', 'generate_quote', {
+      destination_country: destination?.value || '',
+      start_date: startDate?.value || '',
+      end_date: endDate?.value || '',
+      number_of_travelers: travelers?.value || '',
+      event_category: 'Travel Insurance',
+      event_label: 'View Plans Click'
+    });
+
+  });
+
+});
 /* =========================
    2️⃣ SELECT PLAN → ADD TO CART
 ========================= */
