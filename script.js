@@ -21,7 +21,7 @@ pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
 
 /* 1️⃣ Travel details submit */
 function saveTravelDetails() {
-  gtag('event', 'travel_details_submitted');
+  gtag('event', 'travel_details_');
 
   // OPTIONAL: fire OneTrust event at this moment too (if desired)
   // pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
@@ -31,7 +31,7 @@ function saveTravelDetails() {
 function selectPlan(id, name, price) {
   localStorage.setItem("selectedPlan", JSON.stringify({ id, name, price }));
 
-  gtag('event', 'add_to_cart', {
+  gtag('event', 'add_to_', {
     currency: 'INR',
     value: Number(price),
     items: [{
@@ -101,7 +101,7 @@ function purchase() {
   const transactionId =
     Date.now() + "_" + Math.floor(Math.random() * 1000000);
 
-  gtag('event', 'purchase', {
+  gtag('event', 'purc', {
     transaction_id: transactionId,
     currency: 'INR',
     value: Number(plan.price),
