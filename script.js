@@ -1,21 +1,27 @@
 /* =========================================================
-   GA4 gtag IMPLEMENTATION
+   GA4 + SERVER GTM (STAPE) IMPLEMENTATION
    Measurement ID: G-JQ2DF8NVXT
    ========================================================= */
 
-/* Safety fallback */
+/* =========================
+   SAFETY INIT
+========================= */
 window.dataLayer = window.dataLayer || [];
 window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
 
-/* 🔹 Ensure config fires FIRST */
+/* =========================
+   GA4 INIT + SERVER ROUTING
+========================= */
 gtag('js', new Date());
+
 gtag('config', 'G-JQ2DF8NVXT', {
   transport_url: 'https://idlxatxt.euo.stape.net'
 });
 
-/* =========================================================
-   🔹 OneTrust helper (for GTM use)
-   ========================================================= */
+
+/* =========================
+   ONETRUST HELPER
+========================= */
 function pushOneTrustEvent(activeGroups) {
   window.dataLayer.push({
     event: "OneTrust",
@@ -23,21 +29,21 @@ function pushOneTrustEvent(activeGroups) {
   });
 }
 
-/* Optional — fire if consent already known */
+/* Fire if already known */
 pushOneTrustEvent(",C0001,C0002,C0003,C0004,");
 
 
-/* =========================================================
-   1️⃣ Travel Details Submit
-   ========================================================= */
+/* =========================
+   1️⃣ TRAVEL DETAILS
+========================= */
 function saveTravelDetails() {
   gtag('event', 'travel_details');
 }
 
 
-/* =========================================================
-   2️⃣ Select Plan → Add to Cart
-   ========================================================= */
+/* =========================
+   2️⃣ SELECT PLAN → ADD TO CART
+========================= */
 function selectPlan(id, name, price) {
 
   localStorage.setItem("selectedPlan", JSON.stringify({ id, name, price }));
@@ -59,9 +65,9 @@ function selectPlan(id, name, price) {
 }
 
 
-/* =========================================================
-   3️⃣ Load Cart Page
-   ========================================================= */
+/* =========================
+   3️⃣ LOAD CART PAGE
+========================= */
 function loadCart() {
 
   const plan = JSON.parse(localStorage.getItem("selectedPlan"));
@@ -75,9 +81,9 @@ function loadCart() {
 }
 
 
-/* =========================================================
-   4️⃣ Purchase Click
-   ========================================================= */
+/* =========================
+   4️⃣ PURCHASE CLICK
+========================= */
 function purchase() {
 
   const plan = JSON.parse(localStorage.getItem("selectedPlan"));
@@ -102,9 +108,10 @@ function purchase() {
 }
 
 
-/* =========================================================
-   5️⃣ Success Page Load (Important for server GTM)
-   ========================================================= */
+/* =========================
+   5️⃣ SUCCESS PAGE LOAD
+   (Use this on thank you page)
+========================= */
 function pushPurchaseSuccessEvent() {
 
   const plan = JSON.parse(localStorage.getItem("selectedPlan"));
