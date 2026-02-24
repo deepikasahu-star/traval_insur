@@ -14,7 +14,9 @@ window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
 ========================= */
 gtag('js', new Date());
 
-gtag('config', 'G-JQ2DF8NVXT');
+gtag('config', 'G-JQ2DF8NVXT',{
+   transport_url:'https://idlxatxt.euo.stape.net'
+});
 
 
 /* =========================
