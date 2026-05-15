@@ -1,60 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WVQZJSG5');
-</script>
-<!-- End Google Tag Manager -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKDY9VLFPM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <title>Select Plan</title>
 
-  gtag('config', 'G-WKDY9VLFPM');
-</script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5Z3DN3XG');
+    </script>
+    <!-- End Google Tag Manager -->
 
+    <!-- ✅ ADD THIS: GA4 gtag (hard-coded) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQ2DF8NVXT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+        
+     /*gtag('config', 'G-JQ2DF8NVXT'); 
+       Prevent duplicate page_view if GTM also sends page_view */
+    gtag('config', 'G-JQ2DF8NVXT', {
+        
+        transport_url: 'https://idlxatxt.euo.stape.net'
+      });
+     
+    
+     </script>  
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plans - InsureMyTrip Replica</title>
-  <link rel="stylesheet" href="style.css" />
-  
+    <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="plans">
+
+<body>
+
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVQZJSG5"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z3DN3XG"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager (noscript) -->
 
-
-<header class="topbar">
-  <a href="index.html" class="logo">📍insuremy<b>trip</b><sup>®</sup></a>
-  <nav class="nav">
-    <a href="plans.html">Plans⌄</a>
-    <a href="reviews.html">Reviews & FAQs⌄</a>
-    <a href="resources.html">Resources⌄</a>
-    <a href="support.html">Get Support⌄</a>
-    <a href="search.html">🔍</a>
-    <a class="quote-btn" href="quote.html" onclick="gtag('event', 'quote_start', {
-  entry_point: 'your_quote_button',
-  source_page: 'home'
-})">YOUR QUOTE</a>
-  </nav>
+<header>
+    <a href="#">Choose Plan</a>
 </header>
 
+<div class="container">
 
-<section class="results">
-  <h1>Travel Insurance Plans</h1>
-  <p>Choose from medical travel insurance, trip cancellation coverage, emergency evacuation, international student plans, and multi-trip plans.</p>
-  <a class="green-btn" href="quote.html">GET A QUOTE</a>
-</section>
+    <div class="card plan">
+        <div>
+            <h3>Basic Plan</h3>
+            <p>Medical cover up to $50,000</p>
+        </div>
+        <div>
+            <p class="price">₹999</p>
+            <button onclick="selectPlan('P1','Basic Plan',999)">Select</button>
+        </div>
+    </div>
+
+    <div class="card plan">
+        <div>
+            <h3>Standard Plan</h3>
+            <p>Medical + Baggage loss</p>
+        </div>
+        <div>
+            <p class="price">₹1,499</p>
+            <button onclick="selectPlan('P2','Standard Plan',1499)">Select</button>
+        </div>
+    </div>
+
+    <div class="card plan">
+        <div>
+            <h3>Premium Plan</h3>
+            <p>Medical + Trip cancellation</p>
+        </div>
+        <div>
+            <p class="price">₹1,999</p>
+            <button onclick="selectPlan('P3','Premium Plan',1999)">Select</button>
+        </div>
+    </div>
+
+    <div class="card plan">
+        <div>
+            <h3>Platinum Plan</h3>
+            <p>All benefits included</p>
+        </div>
+        <div>
+            <p class="price">₹2,499</p>
+            <button onclick="selectPlan('P4','Platinum Plan',2499)">Select</button>
+        </div>
+    </div>
+
+</div>
 
 <script src="script.js"></script>
 </body>

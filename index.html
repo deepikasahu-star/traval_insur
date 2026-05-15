@@ -1,64 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WVQZJSG5');
-</script>
-<!-- End Google Tag Manager -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKDY9VLFPM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <title>Travel Insurance</title>
 
-  gtag('config', 'G-WKDY9VLFPM');
-</script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5Z3DN3XG');</script>
+    <!-- End Google Tag Manager -->
+    <!-- ✅ ADD THIS: GA4 gtag (hard-coded) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQ2DF8NVXT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+    /*  gtag('config', 'G-JQ2DF8NVXT');  
+       Prevent duplicate page_view if GTM also sends page_view */
+     gtag('config', 'G-JQ2DF8NVXT', {
+        
+        transport_url: 'https://idlxatxt.euo.stape.net'
+      });
+    </script> 
+    <!-- ✅ END gtag -->
 
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home - InsureMyTrip Replica</title>
-  <link rel="stylesheet" href="style.css" />
-  
+    <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="home">
+<body>
+
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVQZJSG5"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z3DN3XG"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager (noscript) -->
 
-
-<header class="topbar">
-  <a href="index.html" class="logo">📍insuremy<b>trip</b><sup>®</sup></a>
-  <nav class="nav">
-    <a href="plans.html">Plans⌄</a>
-    <a href="reviews.html">Reviews & FAQs⌄</a>
-    <a href="resources.html">Resources⌄</a>
-    <a href="support.html">Get Support⌄</a>
-    <a href="search.html">🔍</a>
-    <a class="quote-btn" href="quote.html" onclick="gtag('event', 'quote_start', {
-  entry_point: 'your_quote_button',
-  source_page: 'home'
-})">YOUR QUOTE</a>
-  </nav>
+<header>
+    <a href="#">Travel Insurance</a>
 </header>
 
+<div class="container">
+    <div class="card">
+        <h2>Enter Travel Details</h2>
 
-<section class="hero">
-  <div class="pin">📍</div>
-  <h1>Quote, Compare,<br>And Purchase<br>Travel Insurance</h1>
-  <p>Compare top plans and providers to find the best travel insurance for your unique trip.</p>
-  <a class="quote-btn" href="quote.html" onclick="gtag('event', 'quote_start', {
-  entry_point: 'hero_quote_button',
-  source_page: 'home'
-})">YOUR QUOTE</a>
-</section>
+        <form id="travelForm" action="plans.html">
+    <input id="destination" type="text" placeholder="Destination Country" required>
+    
+    <input id="startDate" type="date" required>
+    
+    <input id="endDate" type="date" required>
+    
+    <input id="travelers" type="number" placeholder="Number of Travelers" required>
+
+    <button type="submit" class="primary">View Plans</button>
+</form>
+    </div>
+</div>
 
 <script src="script.js"></script>
 </body>
