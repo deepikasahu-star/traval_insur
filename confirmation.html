@@ -23,11 +23,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home - InsureMyTrip Replica</title>
+  <title>Confirmation - InsureMyTrip Replica</title>
   <link rel="stylesheet" href="style.css" />
   
 </head>
-<body data-page="home">
+<body data-page="confirmation">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVQZJSG5"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -42,22 +42,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="resources.html">Resources⌄</a>
     <a href="support.html">Get Support⌄</a>
     <a href="search.html">🔍</a>
-    <a class="quote-btn" href="quote.html" onclick="gtag('event', 'quote_start', {
-  entry_point: 'your_quote_button',
-  source_page: 'home'
-})">YOUR QUOTE</a>
+    <a class="quote-btn" href="quote.html" onclick="trackEvent('quote_cta_click', {button_text:'YOUR QUOTE'})">YOUR QUOTE</a>
   </nav>
 </header>
 
 
-<section class="hero">
-  <div class="pin">📍</div>
-  <h1>Quote, Compare,<br>And Purchase<br>Travel Insurance</h1>
-  <p>Compare top plans and providers to find the best travel insurance for your unique trip.</p>
-  <a class="quote-btn" href="quote.html" onclick="gtag('event', 'quote_start', {
-  entry_point: 'hero_quote_button',
-  source_page: 'home'
-})">YOUR QUOTE</a>
+<section class="success">
+  <h1>✅ Confirmation</h1>
+  <p>Your travel insurance plan has been purchased successfully.</p>
+  <p>Your confirmation number is <b>IMT-2026-001</b>.</p>
+  <a class="green-btn" href="index.html">BACK TO HOME</a>
 </section>
 
 <script src="script.js"></script>

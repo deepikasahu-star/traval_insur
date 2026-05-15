@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WVQZJSG5');
+</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKDY9VLFPM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WKDY9VLFPM');
+</script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy - InsureMyTrip Replica</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body data-page="buy">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVQZJSG5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager -->
+
+
+<header class="topbar">
+  <a href="index.html" class="logo">📍insuremy<b>trip</b><sup>®</sup></a>
+  <nav class="nav">
+    <a href="plans.html">Plans⌄</a>
+    <a href="reviews.html">Reviews & FAQs⌄</a>
+    <a href="resources.html">Resources⌄</a>
+    <a href="support.html">Get Support⌄</a>
+    <a href="search.html">🔍</a>
+    <a class="quote-btn" href="quote.html" onclick="trackEvent('quote_cta_click', {button_text:'YOUR QUOTE'})">YOUR QUOTE</a>
+  </nav>
+</header>
+
+
+<section class="buy-wrap">
+  <div style="grid-column:1/-1"><a class="outline-btn" href="results.html">‹ Back</a></div>
+
+  <div>
+    <div class="form-panel">
+      <h2>Travelers</h2>
+      <h3>Traveler 1 (Primary Traveler)</h3>
+
+      <div class="grid-2">
+        <div><label class="required">First Name</label><input id="firstName" /></div>
+        <div><label class="required">Last Name</label><input id="lastName" /></div>
+      </div>
+
+      <div class="grid-2">
+        <div><label class="required">Date of Birth</label><input type="date" /></div>
+        <div><label>Age</label><input value="30" /></div>
+      </div>
+
+      <label class="required">Citizenship</label>
+      <select><option>United States</option><option>India</option></select>
+
+      <div class="grid-2">
+        <div><label class="required">Street Address</label><input /></div>
+        <div><label>Apartment, Suite, Unit, etc.</label><input /></div>
+      </div>
+
+      <div class="grid-3">
+        <div><label class="required">City</label><input /></div>
+        <div><label class="required">State</label><input value="IN" /></div>
+        <div><label class="required">Postal Code</label><input /></div>
+      </div>
+
+      <div class="grid-2">
+        <div><label class="required">Email Address</label><input type="email" /></div>
+        <div><label class="required">Phone Number</label><input /></div>
+      </div>
+    </div>
+
+    <div class="payment">
+      <h2>Payment Information</h2>
+      <div class="grid-2">
+        <div><label class="required">Card Number</label><input placeholder="4111 1111 1111 1111" /></div>
+        <div><label class="required">Name on Card</label><input /></div>
+      </div>
+      <div class="grid-3">
+        <div><label class="required">Expiry Month</label><input placeholder="MM" /></div>
+        <div><label class="required">Expiry Year</label><input placeholder="YYYY" /></div>
+        <div><label class="required">CVV</label><input placeholder="123" /></div>
+      </div>
+
+      <button class="green-btn" style="width:100%; margin-top:20px" onclick="buyNow()">BUY PRODUCT</button>
+    </div>
+  </div>
+
+  <aside class="cart">
+    <h3>🌐 WorldTrips</h3>
+    <h2 id="cartPlan">Atlas International</h2>
+    <p><b>Destination</b><span style="float:right">India</span></p>
+    <p><b>Departure Date</b><span style="float:right">May 15, 2026</span></p>
+    <p><b>Return Date</b><span style="float:right">May 30, 2026</span></p>
+    <p><b>Total Trip Cost</b><span style="float:right">$200.00</span></p><hr>
+    <p><b>Plan Cost</b><span id="cartPrice" style="float:right">$26.08</span></p>
+    <p><b>Total Cost</b><span id="cartTotal" style="float:right">$26.08</span></p>
+  </aside>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
